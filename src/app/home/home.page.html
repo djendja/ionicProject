@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Welcome
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,36 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Welcome</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" offset="3" offset-lg="5">
+        <ion-button
+          routerLink="/log-in"
+          color="primary"
+          fill="solid"
+          shape="round"
+          size="medium"
+          class="pr-25"
+        >
+          <span>Log in</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" offset="3" offset-lg="5">
+        <ion-button
+          routerLink="/register"
+          color="primary"
+          fill="solid"
+          shape="round"
+          size="medium"
+        >
+          Register
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
