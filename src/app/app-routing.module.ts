@@ -20,6 +20,19 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'cookbook',
+    loadChildren: () => import('./cookbook/cookbook.module').then( m => m.CookbookPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'recommended-recipes',
+    loadChildren: () => import('./cookbook/recommended-recipes/recommended-recipes.module').then( m => m.RecommendedRecipesPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({
