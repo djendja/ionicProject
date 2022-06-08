@@ -17,7 +17,7 @@ export class LogInPage implements OnInit {
 
   onLogIn(form: NgForm) {
     this.authService.logIn();
-    this.router.navigateByUrl('/quotes/tabs/explore');
+    this.router.navigateByUrl('/');
   }
 
 }
