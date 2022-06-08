@@ -36,3 +36,7 @@ ion-grid {
     padding:0 12px;
   }
 }
+
+ion-content.background{
+  --background: url(https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2) 0 0/100% 100% no-repeat;
+}
