@@ -29,4 +29,7 @@ export class RecipesService {
       return this.myRecipes.find((r: Recipe) => r.id === id);
     }
 
+    addRecipe(recipe: Recipe): void {
+      this.myRecipes.push(recipe);
+  }
 }

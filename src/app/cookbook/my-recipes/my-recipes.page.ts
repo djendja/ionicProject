@@ -27,7 +27,7 @@ export class MyRecipesPage implements OnInit {
   openModal() {
     this.modalCtrl.create({
       component: RecipeModalComponent,
-      componentProps: {title: 'Add quote'}
+      componentProps: {title: 'Add recipe'}
     }).then((modal: HTMLIonModalElement) => {
       modal.present();
       return modal.onDidDismiss();
