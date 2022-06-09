@@ -5,13 +5,29 @@ import { CookbookPage } from './cookbook.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CookbookPage
+    path: 'tabs',
+    component: CookbookPage,
+    children: [
+      {
+        path: 'my-recipes',
+        loadChildren: () => import('./my-recipes/my-recipes.module').then( m => m.MyRecipesPageModule)
+      },
+      {
+        path: 'recommended-recipes',
+        loadChildren: () => import('./recommended-recipes/recommended-recipes.module').then( m => m.RecommendedRecipesPageModule)
+      },
+      {
+        path: '',
+        redirectTo: '/cookbook/tabs/recommended-recipes',
+        pathMatch: 'full'
+      },
+    ]
   },
   {
-    path: 'my-recipes',
-    loadChildren: () => import('./my-recipes/my-recipes.module').then( m => m.MyRecipesPageModule)
-  }
+    path: '',
+    redirectTo: '/cookbook/tabs/recommended-recipes',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,7 @@ export class RegisterPage implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -23,6 +25,8 @@ export class RegisterPage implements OnInit {
 
   onRegister() {
     console.log(this.registerForm);
+    this.authService.logIn();
+    this.router.navigateByUrl('/cookbook/tabs/recommended-recipes');
     
   }
 

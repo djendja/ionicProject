@@ -27,11 +27,13 @@ const routes: Routes = [
   },
   {
     path: 'recommended-recipes',
-    loadChildren: () => import('./cookbook/recommended-recipes/recommended-recipes.module').then( m => m.RecommendedRecipesPageModule)
+    loadChildren: () => import('./cookbook/recommended-recipes/recommended-recipes.module').then( m => m.RecommendedRecipesPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+    canLoad: [AuthGuard]
   },
 ];
 

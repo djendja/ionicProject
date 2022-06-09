@@ -17,7 +17,7 @@ export class LogInPage implements OnInit {
 
   onLogIn(form: NgForm) {
     this.authService.logIn();
-    this.router.navigateByUrl('/cookbook');
+    this.router.navigateByUrl('/cookbook/tabs/recommended-recipes');
   }
 
 }
