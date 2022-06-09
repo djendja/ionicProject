@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RecipeElementComponent } from '../recipe-element/recipe-element.component';
 
 import { RecommendedRecipesPage } from './recommended-recipes.page';
 
@@ -9,7 +10,7 @@ const routes: Routes = [
     component: RecommendedRecipesPage
   },
   {
-    path: 'recipe-details',
+    path: ':recipeId',
     loadChildren: () => import('./recipe-details/recipe-details.module').then( m => m.RecipeDetailsPageModule)
   }
 ];
