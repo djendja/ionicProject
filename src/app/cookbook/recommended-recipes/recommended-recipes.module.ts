@@ -16,6 +16,6 @@ import { RecipeElementComponent } from '../recipe-element/recipe-element.compone
     IonicModule,
     RecommendedRecipesPageRoutingModule
   ],
-  declarations: [RecommendedRecipesPage, RecipeElementComponent]
+  declarations: [RecommendedRecipesPage, RecipeElementComponent],
 })
 export class RecommendedRecipesPageModule {}
