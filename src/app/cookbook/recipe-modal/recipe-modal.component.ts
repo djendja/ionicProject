@@ -25,7 +25,7 @@ export class RecipeModalComponent implements OnInit {
     if(!this.form.valid) {
       return;
     }
-    this.recipesService.addRecipe({id:'', title: this.form.value['title'], text: this.form.value['text'], imageUrl: ''})
-    this.modalCtrl.dismiss({quoteData: {title: this.form.value['title'], text: this.form.value['text']}},'confirm');
+    // this.recipesService.addRecipe({id:'', title: this.form.value['title'], text: this.form.value['text'], imageUrl: ''})
+    this.modalCtrl.dismiss({recipeData: {title: this.form.value['title'], text: this.form.value['text']}},'confirm');
   }
 }

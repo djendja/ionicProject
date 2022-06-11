@@ -16,7 +16,7 @@ export class MyRecipesDetailsPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
-      this.recipe = this.recipesService.getMyRecipe(paramMap.get('recipeId'));
+      // this.recipe = this.recipesService.getMyRecipe(paramMap.get('recipeId'));
     })
   }
 }
