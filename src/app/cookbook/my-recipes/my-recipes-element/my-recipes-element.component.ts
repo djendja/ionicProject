@@ -9,7 +9,7 @@ import { Recipe } from '../../recipe';
 export class MyRecipesElementComponent implements OnInit {
 
  
-  @Input() recipe: Recipe = {id: 'q3', text: 'Danish sweet recipe, lisnato testo, jaja, itd', title: 'Danish sweet', imageUrl: 'https://www.mexicanplease.com/wp-content/uploads/2020/01/grocery-list-37-recipes-notepad.jpg'};
+  @Input() recipe: Recipe = {id: 'q3', text: 'Danish sweet recipe, lisnato testo, jaja, itd', title: 'Danish sweet', imageUrl: 'https://www.mexicanplease.com/wp-content/uploads/2020/01/grocery-list-37-recipes-notepad.jpg', userId: 'ert'};
 
   constructor() { }
 

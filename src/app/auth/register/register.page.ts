@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterPage implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -25,9 +26,15 @@ export class RegisterPage implements OnInit {
 
   onRegister() {
     console.log(this.registerForm);
-    this.authService.logIn();
-    this.router.navigateByUrl('/cookbook/tabs/recommended-recipes');
-    
+    this.loadingCtrl.create({message: 'Registering...'}).then((loadingEl) => {
+      loadingEl.present();
+      this.authService.register(this.registerForm.value).subscribe(resData => {
+        console.log('registracija uspela', resData);
+        this.loadingCtrl.dismiss();
+        this.router.navigateByUrl('/cookbook/tabs/recommended-recipes');
+      })
+  
+    })
   }
 
 }

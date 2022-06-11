@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from '../../recipe';
 import { RecipesService } from '../../recipes.service';
@@ -9,14 +9,14 @@ import { RecipesService } from '../../recipes.service';
   styleUrls: ['./my-recipes-details.page.scss'],
 })
 export class MyRecipesDetailsPage implements OnInit {
-  recipe: Recipe = {id: 'q3', title: 'Horace', text: 'Carpe diem?',imageUrl: ''};
+  @Input() recipe: Recipe = {id: 'q3', title: 'Horace', text: 'Carpe diem?',imageUrl: '', userId: 'qwe'};
 
 
   constructor(private route: ActivatedRoute, private recipesService: RecipesService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
-      // this.recipe = this.recipesService.getMyRecipe(paramMap.get('recipeId'));
+      // this.recipe = this.recipesService.getMyRecipes(paramMap.get('recipeId'));
     })
   }
 }

@@ -8,7 +8,7 @@ import { Recipe } from '../recipe';
 })
 export class RecipeElementComponent implements OnInit {
 
-  @Input() recipe: Recipe = {id: 'q3', text: 'Danish sweet recipe, lisnato testo, jaja, itd', title: 'Danish sweet', imageUrl: 'https://www.dinneratthezoo.com/wp-content/uploads/2018/01/cream-cheese-danish-5.jpg'};
+  @Input() recipe: Recipe = {id: 'q3', text: 'Danish sweet recipe, lisnato testo, jaja, itd', title: 'Danish sweet', imageUrl: 'https://www.dinneratthezoo.com/wp-content/uploads/2018/01/cream-cheese-danish-5.jpg', userId: 'asd'};
 
   constructor() { }
 

@@ -1,6 +1,4 @@
-export interface Recipe {
-    id: string;
-    title: string, 
-    text: string,
-    imageUrl: string;
+export class Recipe {
+    constructor(public id: string, public title: string, public text: string, public imageUrl: string, public userId: string) {
+    }
 }

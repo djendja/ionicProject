@@ -9,7 +9,7 @@ import { RecipesService } from '../../recipes.service';
   styleUrls: ['./recipe-details.page.scss'],
 })
 export class RecipeDetailsPage implements OnInit {
-  recipe: Recipe = {id: 'q3', title: 'Horace', text: 'Carpe diem?',imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Yvoire_cadran_solaire.jpg'};
+  recipe: Recipe = {id: 'q3', title: 'Horace', text: 'Carpe diem?',imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Yvoire_cadran_solaire.jpg', userId: 'tyu'};
 
 
   constructor(private route: ActivatedRoute, private recipesService: RecipesService) { }
