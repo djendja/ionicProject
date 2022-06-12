@@ -17,24 +17,17 @@ export class RecommendedRecipesPage implements OnInit {
   private recipeSub: Subscription
 
   constructor(private recipesService: RecipesService, private modalCtrl: ModalController) { 
-    console.log('constructor');
-    // this.recipes = this.recipesService.recommendedRecipes;
   }
 
   ngOnInit(): void {
-    this.recipeSub = this.recipesService.recommendedRecipes.subscribe((recipes: any) => {
-      // console.log(quotesData);
-     
+    this.recipeSub = this.recipesService.recommendedRecipes.subscribe((recipes: any) => {     
       this.recipes = recipes;
     })
   }
 
   
   ionViewWillEnter() {
-    this.recipesService.getRecommendedRecipes().subscribe((quotes: any) => {
-      // console.log(quotesData);
-     
-      // this.quotes = quotes;
+    this.recipesService.getRecommendedRecipes().subscribe((recipes: any) => {
     })
   }
 
@@ -47,13 +40,11 @@ export class RecommendedRecipesPage implements OnInit {
       return modal.onDidDismiss();
     }).then((resultData: OverlayEventDetail)=> {
       if(resultData.role === 'confirm') {
-        console.log(resultData);
       }
     })
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy');
     if(this.recipeSub) {
       this.recipeSub.unsubscribe();
     }

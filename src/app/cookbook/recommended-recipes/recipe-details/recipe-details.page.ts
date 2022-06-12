@@ -9,21 +9,17 @@ import { RecipesService } from '../../recipes.service';
   styleUrls: ['./recipe-details.page.scss'],
 })
 export class RecipeDetailsPage implements OnInit {
-  recipe: Recipe = {id: 'q3', title: 'Horace', text: 'Carpe diem?',imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Yvoire_cadran_solaire.jpg', userId: 'tyu'};
+  recipe: Recipe;
 
 
   constructor(private route: ActivatedRoute, private recipesService: RecipesService) { }
 
   ngOnInit() {
-    // this.route.paramMap.subscribe(paramMap => {
-    //   // this.recipe = this.recipesService.getrecommendedRecipe(paramMap.get('recipeId'));
-    // })
     this.route.paramMap.subscribe((paramMap) => {
-      this.recipesService.getRecommendedRecipe(paramMap.get('recipeId')).subscribe((recept) => {
-        if(recept != 'obrisan'){
-          console.log(recept);
-          this.recipe = recept;
-          // paramMap.get('recipeId');
+      this.recipesService.getRecommendedRecipe(paramMap.get('recipeId')).subscribe((recipe) => {
+        if(recipe != 'obrisan'){
+          console.log(recipe);
+          this.recipe = recipe;
         }
           
         });

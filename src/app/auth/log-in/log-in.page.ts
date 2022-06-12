@@ -30,15 +30,6 @@ export class LogInPage implements OnInit {
         console.log(errRes);
         this.isLoading = false;
         let message = "Incorrect email or password";
-        
-        // const code = errRes.error.error.message;
-        
-        // if(code === 'EMAIL_NOT_FOUND') {
-        //   message = "Email address could not be found"
-        // }
-        // else if(code === 'INVALID_PASSWORD'){
-        //   message = 'This password is not correct'
-        // }
 
         this.alertCtrl.create({
           header: "Authentication failed",

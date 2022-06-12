@@ -1,11 +1,6 @@
-<ion-item>
   <ion-item [routerLink]="['/','cookbook','tabs','my-recipes', recipe.id]">
-      <!-- [routerLink]="['/','cookbook','tabs','recommended-recipes', recipe.id] -->
- 
     <ion-avatar slot="start">
       <ion-img [src]="recipe.imageUrl"></ion-img>
     </ion-avatar>
-    <!-- <ion-label>{{quote.author}}</ion-label> -->
     <ion-label>{{recipe.title}}</ion-label>
   </ion-item>
-</ion-item>

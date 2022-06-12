@@ -20,13 +20,10 @@ export class MyRecipesPage implements OnInit {
 
   constructor(private recipesService: RecipesService, private modalCtrl: ModalController) { 
     console.log('constructor');
-    // this.recipes = this.recipesService.recipes;
   }
 
   ngOnInit(): void {
-    this.recipeSub = this.recipesService.recipes.subscribe((recipes: any) => {
-      // console.log(quotesData);
-     
+    this.recipeSub = this.recipesService.recipes.subscribe((recipes: any) => {     
       this.recipes = recipes;
     })
   }
@@ -34,7 +31,7 @@ export class MyRecipesPage implements OnInit {
   openModal() {
     this.modalCtrl.create({
       component: RecipeModalComponent,
-      componentProps: {modalTitle: 'Add recipe'}
+      componentProps: {modalTitle: 'Add recipe', buttonText: 'ADD IT'}
     }).then((modal: HTMLIonModalElement) => {
       modal.present();
       return modal.onDidDismiss();
@@ -42,22 +39,17 @@ export class MyRecipesPage implements OnInit {
       if(resultData.role === 'confirm') {
         console.log(resultData);
         this.recipesService.addMyRecipe(resultData.data.recipeData.title, resultData.data.recipeData.text).subscribe((res) => {
-          // this.quotes = res;
         })
       }
     })
   }
 
   ionViewWillEnter() {
-    this.recipesService.getMyRecipes().subscribe((quotes: any) => {
-      // console.log(quotesData);
-     
-      // this.quotes = quotes;
+    this.recipesService.getMyRecipes().subscribe((recipes: any) => {     
     })
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy');
     if(this.recipeSub) {
       this.recipeSub.unsubscribe();
     }

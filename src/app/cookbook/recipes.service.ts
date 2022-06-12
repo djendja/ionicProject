@@ -19,12 +19,7 @@ export class RecipesService {
   private _recipes = new BehaviorSubject<Recipe[]>([]);
   private _recommendedRecipes = new BehaviorSubject<Recipe[]>([]);
 
-  private image = 'https://images.pexels.com/photos/6958009/pexels-photo-6958009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-  // private recommendedRecipes = new Recipe('q1', 'salata sa skripavcem i pestom', 'Salata sa skripavcem i pestom po recepturi Telma restorana. Sadrzi rukolu, sir skripavac, pomorandze, seckane bademe, pesto i pravo je letnje osvezenje. Vreme pripreme: 15min','https://images.pexels.com/photos/10504075/pexels-photo-10504075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2','w2')
-  // recommendedRecipes: Recipe[] = [
-  //   {id: 'q1', title: 'Salata sa skripavcem i pestom', text: 'Salata sa skripavcem i pestom po recepturi Telma restorana. Sadrzi rukolu, sir skripavac, pomorandze, seckane bademe, pesto i pravo je letnje osvezenje. Vreme pripreme: 15min',imageUrl: 'https://images.pexels.com/photos/10504075/pexels-photo-10504075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', userId: 'xxx'},
-  //   {id: 'q2', title: 'Momo Kapor', text: 'Mnogima bi se dopao da se nisi trudio dopasti se',imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Yvoire_cadran_solaire.jpg', userId: 'xyx'}
-  // ];
+  private image = 'https://images.pexels.com/photos/6287225/pexels-photo-6287225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
   
     get recipes() {
       return this._recipes.asObservable();
@@ -39,14 +34,6 @@ export class RecipesService {
   
     }
   
-    getrecommendedRecipe(id: string) {
-      // return this.recommendedRecipes.find((r: Recipe) => r.id === id);
-    }
-
-     
-    // getMyRecipe(id: string) {
-    //   // return this._recipes.find((r: Recipe) => r.id === id);
-    // }
 
     getMyRecipe(id: string) {
       return this.authService.token.pipe(
@@ -98,10 +85,6 @@ export class RecipesService {
       );
     }
 
-  //   addRecipe(recipe: Recipe): void {
-  //     this.myRecipes.push(recipe);
-  // }
-
   addMyRecipe(title: string, text: string) {
     let generatedId;
     let newRecipe: Recipe;
@@ -137,21 +120,6 @@ export class RecipesService {
       )
 })
     );
-
-  //  return this.http.post<{name: string}>(`https://ionicproject-projekat-default-rtdb.europe-west1.firebasedatabase.app/recipes.json`,{title, text})
-  // .pipe(switchMap((resData) => {
-  //   generatedId =resData.name;
-  //   return this._recipes;
-  //  }), take(1), tap((recipes)=> {
-  //        this._recipes.next(
-  //          recipes.concat({
-  //           id: generatedId,
-  //           title,
-  //           text,
-  //           imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Yvoire_cadran_solaire.jpg'
-  //          })
-  //        )
-  //  }))
 
   }
 

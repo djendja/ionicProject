@@ -12,6 +12,7 @@ export class RecipeModalComponent implements OnInit {
 
   @ViewChild('f',{static: true}) form: NgForm;
   @Input() modalTitle: string;
+  @Input() buttonText: string;
   @Input() title: string;
   @Input() text: string;
 
@@ -27,7 +28,6 @@ export class RecipeModalComponent implements OnInit {
     if(!this.form.valid) {
       return;
     }
-    // this.recipesService.addRecipe({id:'', title: this.form.value['title'], text: this.form.value['text'], imageUrl: ''})
     this.modalCtrl.dismiss({recipeData: {title: this.form.value['title'], text: this.form.value['text']}},'confirm');
   }
 }
