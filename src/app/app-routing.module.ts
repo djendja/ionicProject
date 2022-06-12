@@ -30,11 +30,6 @@ const routes: Routes = [
     loadChildren: () => import('./cookbook/recommended-recipes/recommended-recipes.module').then( m => m.RecommendedRecipesPageModule),
     canLoad: [AuthGuard]
   },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
-    canLoad: [AuthGuard]
-  },
 ];
 
 @NgModule({
