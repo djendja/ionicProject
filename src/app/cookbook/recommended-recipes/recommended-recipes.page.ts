@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core';
+import { Subscription } from 'rxjs';
 import { Recipe } from '../recipe';
 import { RecipeModalComponent } from '../recipe-modal/recipe-modal.component';
 import { RecipesService } from '../recipes.service';
@@ -13,20 +14,34 @@ import { RecipesService } from '../recipes.service';
 export class RecommendedRecipesPage implements OnInit {
 
   recipes: Recipe[];
+  private recipeSub: Subscription
 
   constructor(private recipesService: RecipesService, private modalCtrl: ModalController) { 
     console.log('constructor');
-    this.recipes = this.recipesService.recommendedRecipes;
+    // this.recipes = this.recipesService.recommendedRecipes;
   }
 
   ngOnInit(): void {
-      
+    this.recipeSub = this.recipesService.recommendedRecipes.subscribe((recipes: any) => {
+      // console.log(quotesData);
+     
+      this.recipes = recipes;
+    })
+  }
+
+  
+  ionViewWillEnter() {
+    this.recipesService.getRecommendedRecipes().subscribe((quotes: any) => {
+      // console.log(quotesData);
+     
+      // this.quotes = quotes;
+    })
   }
 
   openModal() {
     this.modalCtrl.create({
       component: RecipeModalComponent,
-      componentProps: {title: 'Add recipe'}
+      componentProps: {modalTitle: 'Add recipe'}
     }).then((modal: HTMLIonModalElement) => {
       modal.present();
       return modal.onDidDismiss();
@@ -36,5 +51,13 @@ export class RecommendedRecipesPage implements OnInit {
       }
     })
   }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+    if(this.recipeSub) {
+      this.recipeSub.unsubscribe();
+    }
+  }
+
 }
 

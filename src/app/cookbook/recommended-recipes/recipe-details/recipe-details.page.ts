@@ -15,8 +15,18 @@ export class RecipeDetailsPage implements OnInit {
   constructor(private route: ActivatedRoute, private recipesService: RecipesService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
-      this.recipe = this.recipesService.getrecommendedRecipe(paramMap.get('recipeId'));
-    })
+    // this.route.paramMap.subscribe(paramMap => {
+    //   // this.recipe = this.recipesService.getrecommendedRecipe(paramMap.get('recipeId'));
+    // })
+    this.route.paramMap.subscribe((paramMap) => {
+      this.recipesService.getRecommendedRecipe(paramMap.get('recipeId')).subscribe((recept) => {
+        if(recept != 'obrisan'){
+          console.log(recept);
+          this.recipe = recept;
+          // paramMap.get('recipeId');
+        }
+          
+        });
+      })
   }
 }

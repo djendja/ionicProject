@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class RegisterPage implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController) { }
+  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController, private alertCtrl: AlertController) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -32,8 +32,23 @@ export class RegisterPage implements OnInit {
         console.log('registracija uspela', resData);
         this.loadingCtrl.dismiss();
         this.router.navigateByUrl('/cookbook/tabs/recommended-recipes');
+      }, 
+      errRes => {
+        console.log(errRes);
+        loadingEl.dismiss();
+        let message = 'Greska';
+
+        this.alertCtrl.create({
+          header: 'Greska',
+          message,
+          buttons: ['OK']
+        }).then((alert) => {
+          alert.present();
+        });
+
+        this.registerForm.reset();
+
       })
-  
     })
   }
 

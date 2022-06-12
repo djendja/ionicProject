@@ -11,7 +11,9 @@ import { RecipesService } from '../recipes.service';
 export class RecipeModalComponent implements OnInit {
 
   @ViewChild('f',{static: true}) form: NgForm;
+  @Input() modalTitle: string;
   @Input() title: string;
+  @Input() text: string;
 
   constructor(private modalCtrl: ModalController, private recipesService: RecipesService) { }
 
